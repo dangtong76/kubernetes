@@ -3420,43 +3420,43 @@ get / --prefix --keys-only
 
 - 프로젝트 이름에 원하는 값을 입력하고 <kbd>만들기</kbd> 클릭
 
-![GKE-new-project](../../sas_book/img/GKE-new-project.png)
+![GKE-new-project](../img/GKE-new-project.png)
 
 #### 3. 쿠버네티스 클러스터 생성
 
 - 홈메뉴 에서 <kbd> Kubernetes Engine </kbd> 클릭
 
-![GKE-ngine-enter](../../sas_book/img/GKE-ngine-enter.png)
+![GKE-ngine-enter](../img/GKE-ngine-enter.png)
 
 
 
 - 프로젝트를 선택하기 위해 <kbd> 프로젝트 선택</kbd> 클릭
 
-![GKE-choose-project-for-create-cluster](../../sas_book/img/GKE-choose-project-for-create-cluster.png)
+![GKE-choose-project-for-create-cluster](../img/GKE-choose-project-for-create-cluster.png)
 
 
 
 - 팝업창이 뜨면 프로젝트 gke-first 를 선택하고 <kbd> 열기 </kbd> 클릭
 
-![GKE-open-project](../../sas_book/img/GKE-open-project.png)
+![GKE-open-project](../img/GKE-open-project.png)
 
 
 
 - 1분정도 기다린 후에  <kbd> 클러스터 만들기 </kbd> 클릭
 
-![](../../sas_book/img/GKE-create-cluster.png)
+![](../img/GKE-create-cluster.png)
 
 
 
 - 클러스터 기본사항 에서 영역을 "asia-east1-a" 로 선택 한후,   <kbd> 만들기</kbd> 클릭
 
-![GKE-create-cluster-1](../../sas_book/img/GKE-create-cluster-1.png)
+![GKE-create-cluster-1](../img/GKE-create-cluster-1.png)
 
 
 
 - 아래와 같이 k8s 클러스터를 생성 중인 화면이 나오면 정상 적으로 진행이 된 것입니다.
 
-![GKE-cluster-complete](../../sas_book/img/GKE-cluster-complete.png)
+![GKE-cluster-complete](../img/GKE-cluster-complete.png)
 
 
 
@@ -3466,13 +3466,13 @@ get / --prefix --keys-only
 
 - GKE 클러스터가 생성되면 <kbd> 연결 </kbd> 클릭
 
-![GKE-cluster-connect-1](../../sas_book/img/GKE-cluster-connect-1.png)
+![GKE-cluster-connect-1](../img/GKE-cluster-connect-1.png)
 
 
 
 - 팝업창이 뜨면 <kbd> Cloud Shell에서 실행 </kbd> 클릭
 
-![GKE-cluster-connect-2](../../sas_book/img/GKE-cluster-connect-2.png)
+![GKE-cluster-connect-2](../img/GKE-cluster-connect-2.png)
 
 
 
