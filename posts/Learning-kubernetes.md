@@ -2157,11 +2157,9 @@ Replication Controller 만 삭제. POD 는 그대로 유지 합니다.
 kubectl delete rc goapp-rc --cascade=false
 ```
 
+## 12.ReplicaSet
 
-
-##12. ReplicaSet
-
-###12.1 RS 생성
+###  12.1 RS 생성
 
 Selector 를 작성 할때 **ForntEnd** 이고 **운영계** 이면서 중요도가 **High** 인 POD 에 대해 RS 를 생성 합니다.
 
@@ -2193,7 +2191,9 @@ spec:
         image: gcr.io/google_samples/gb-frontend:v3
 ```
 
-###12.2 RS 확인
+
+
+### 12.2 RS 확인
 
 ```{bash}
 $ kubectl get pod -o wide
@@ -2236,9 +2236,11 @@ frontend-rv9bl   1/1     Running   0          107s   env=prod,priority=high,tier
 3. 남겨진 Nginx Pod를 관리하는 ReplicaSet 을 작성하된 replica 4개로 구성 하시요
 4.  Nginx Pod 를 6개로 Scale Out 하세요
 
-##13.DeamonSet
 
-###13.1 데몬셋 생성
+
+## 13.DeamonSet
+
+### 13.1 데몬셋 생성
 
 goapp-ds.yaml 이라는 이름으로 아래 파일을 작성 합니다.
 
@@ -2303,8 +2305,6 @@ AME           DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR
 goapp-on-ssd   2         2         2       2            2           disk=ssd        10m
 ```
 
-
-
 ## 14.Deployment
 
 ### 14.1 Deployment 생성
@@ -2344,7 +2344,7 @@ kubectl apply -f ./nginx-deploy.yaml
 
 
 
-### 14.2 Deployment 확인
+###  14.2 Deployment 확인
 
 ```{bash}
 kubectl get pod,rs,deploy
