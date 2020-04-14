@@ -3105,6 +3105,75 @@ curl http://192.168.56.108
 
 
 
+### 7.2 Git EmptyDir
+
+#### 7.2.1 웹서비스용 Git 리포지토리 생성
+
+Appendix3 . Git 계정 생성 및 Sync 참조
+
+
+
+#### 7.2.2 Deployment 용 yaml 파일 작성
+
+```{bash}
+$ cd ./gitvolumn/kubetmp
+$ vi gitvolume-deploy.yaml
+```
+
+
+
+```{yaml}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitvolume-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: web-server
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html
+          readOnly: true
+        ports:
+          - containerPort: 80
+            protocol: TCP
+      volumes:
+      - name: html
+        gitRepo:
+          repository: https://github.com/dangtong76/k8s-website.git
+          revision: master
+          directory: .
+
+```
+
+
+
+
+
+#### 7.2.3 Deployment 생성
+
+```{bash}
+$ kubectl apply -f ./gitvolume-deploy.yaml
+```
+
+
+
+
+
+
+
 
 
 ***
@@ -3478,5 +3547,69 @@ get / --prefix --keys-only
 
 
 
-## Appendix 3. 
+## Appendix 3.  Git 계정 생성 및 Sync
+
+### 1.Git 계정생성
+
+www.github.com 에서 계정 생성
+
+
+
+### 2. Git 리포지토리 생성
+
+- GitHub.com 에 자신의 계정으로 로그인하여 아래 화면과 같이 리포지토리 생성
+
+![](../img/git_repo_create.png)
+
+
+
+- 리포지토리 이름을 아래와 같이 입력하고. 생성 합니다. (Repository name : k8s-web)
+
+![git_repo_create_spec](../img/git_repo_create_spec.png)
+
+
+
+### 3. 소스 파일 작성
+
+```{bash}
+$ mkdir -p ./gitvolumn/html
+$ mkdir -p ./gitvolumn/kubetmp
+$ cd ./gitvolumn/html
+$ vi index.html
+```
+
+
+
+index.html 이름으로 아래 페이지를 작성 합니다.
+
+```{html}
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>K8s Landing Page</h1>
+
+<p>Hello Kubernetes !!!</p>
+
+</body>
+</html>
+
+```
+
+
+
+### 4. Git 리포지토리 생성 및 초기화
+
+```{bash}
+$ git init
+$ git add .
+$ git commit -a -m "first commit"
+
+$ git remote add origin https://github.com/<계정명>/k8s-web.git
+$ git remote -v
+$ git push origin master
+
+$ git status
+
+```
 
